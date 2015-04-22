@@ -1,0 +1,16 @@
+#container {
+	margin: 0 auto;
+	width: 500px;
+	overflow: auto;
+}
+
+#inventory {
+	margin: 0 auto;
+	width: 500px;
+}
+
+.fruit {
+	text-align: center;
+	float: left;
+	margin: 10px;
+}
