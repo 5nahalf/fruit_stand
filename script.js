@@ -8,7 +8,7 @@ function Fruit(name) {
 }
 
 Fruit.prototype.changePrice = function() {
-	this.price += randomNumber(-200,200)/100;
+	this.price += randomNumber(-25,25)/100;
 	this.price = Math.round(this.price * 100)/100;
 	if(this.price > 9.99) {
 		this.price = 9.99;
@@ -20,8 +20,8 @@ Fruit.prototype.changePrice = function() {
 Fruit.prototype.display = function(){
 	var imgString = "<img src='images/" + this.name + ".png'></img>";
 	var string = "<div>" + imgString + "<br>$" + this.price + "</div>";
-	var button = "<button class='btnBuy' value='" + this.name + "'>Buy " + this.name + "</button>";
-	var buttonSell ="<button class='btnSell' value='" + this.name + "'>Sell " + this.name + "</button>";
+	var button = "<button class='btnBuy' value='" + this.name + "'>Buy</button>";
+	var buttonSell ="<button class='btnSell' value='" + this.name + "'>Sell</button>";
 	var invString = "<div>You have " + inventory[this.name] + "</div>";
 	var divWrapper = "<div class='fruit'>" + string + button + buttonSell + invString + "</div>";
 	$("#container").append(divWrapper);
@@ -56,7 +56,7 @@ function startMarket() {
 	var pear = new Fruit("pears");
 
 	// Intialize / reset global variables to the above
-	money = 100;
+	money = 50;
 	fruit = [apple, orange, banana, pear];
 	inventory = new PlayerInventory(fruit);
 }
