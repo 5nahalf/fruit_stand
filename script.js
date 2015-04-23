@@ -8,7 +8,7 @@ function Fruit(name) {
 }
 
 Fruit.prototype.changePrice = function() {
-	this.price += randomNumber(-50,50)/100;
+	this.price += randomNumber(-200,200)/100;
 	this.price = Math.round(this.price * 100)/100;
 	if(this.price > 9.99) {
 		this.price = 9.99;
@@ -21,8 +21,9 @@ Fruit.prototype.display = function(){
 	var imgString = "<img src='images/" + this.name + ".png'></img>";
 	var string = "<div>" + imgString + "<br>$" + this.price + "</div>";
 	var button = "<button class='btnBuy' value='" + this.name + "'>Buy " + this.name + "</button>";
+	var buttonSell ="<button class='btnSell' value='" + this.name + "'>Sell " + this.name + "</button>";
 	var invString = "<div>You have " + inventory[this.name] + "</div>";
-	var divWrapper = "<div class='fruit'>" + string + button + invString + "</div>";
+	var divWrapper = "<div class='fruit'>" + string + button + buttonSell + invString + "</div>";
 	$("#container").append(divWrapper);
 }
 
@@ -72,8 +73,26 @@ $(document).ready(function(){
 				fruit[i].changePrice();
 			}
 			updateAll();
-		}, 15000);																	//.siblings.  "ul class='someList'" its sibling is CONTAINER.																	//Remove up to parent, then to parent's sibling.  Removes: <div class="container">	
+		}, 15000);				
+		$("#sound").append("<iframe width='0' height='0' src='https://www.youtube.com/embed/q6EoRBvdVPQ?autoplay=1' frameborder='0'></iframe>")														//Remove up to parent, then to parent's sibling.  Removes: <div class="container">	
 	});
+$("#container").on("click", ".btnSell", function(){
+		updateAll();
+		// Loop through fruits array to check which fruit name the button was assigned
+		for (var i = 0; i < fruit.length; i++) {
+			if(fruit[i].name == this.value){
+				if(inventory[this.value] < 1){
+					alert("You don't have any " + this.value + " to sell!");
+					return;
+				}
+				inventory[this.value]--;
+				money += fruit[i].price;
+				money = Math.round(money * 100) / 100;
+				updateAll();
+			}
+		};
+	});
+
 	$("#container").on("click", ".btnBuy", function(){
 		inventory[this.value]++;
 		updateAll();
@@ -81,10 +100,11 @@ $(document).ready(function(){
 		for (var i = 0; i < fruit.length; i++) {
 			if(fruit[i].name == this.value){
 				if(money < fruit[i].price){
-					alert("You've gone broke! \nThanks for playing!");
+					alert("You don't have enough dosh to buy " + this.value +"!");
 					return;
 				}
 				money -= fruit[i].price;
+				money = Math.round(money * 100) / 100;
 				updateAll();
 			}
 		};

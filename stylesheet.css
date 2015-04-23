@@ -8,9 +8,78 @@
 	margin: 0 auto;
 	width: 500px;
 }
+#money {
+	margin: 0 auto;
+	width: 500px;
+}
 
 .fruit {
 	text-align: center;
 	float: left;
 	margin: 10px;
+}
+
+#btnStart {
+	margin: 0 auto;
+	
+
+}
+
+#btnStart {
+  background: #7c8185;
+  background-image: -webkit-linear-gradient(top, #7c8185, #121314);
+  background-image: -moz-linear-gradient(top, #7c8185, #121314);
+  background-image: -ms-linear-gradient(top, #7c8185, #121314);
+  background-image: -o-linear-gradient(top, #7c8185, #121314);
+  background-image: linear-gradient(to bottom, #7c8185, #121314);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 1px 1px 3px #666666;
+  -webkit-box-shadow: 5px 5px 3px #666666;
+  -moz-box-shadow: 5px 5px 3px #666666;
+  box-shadow: 5px 5px 3px #666666;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+button {
+  font-family: Papyrus;
+}
+
+#btnStart:hover {
+  background: #121314;
+  background-image: -webkit-linear-gradient(top, #121314, #7c8185);
+  background-image: -moz-linear-gradient(top, #121314, #7c8185);
+  background-image: -ms-linear-gradient(top, #121314, #7c8185);
+  background-image: -o-linear-gradient(top, #121314, #7c8185);
+  background-image: linear-gradient(to bottom, #121314, #7c8185);
+  text-decoration: none;
+}
+
+body {
+	background-image: url("http://images.all-free-download.com/images/graphiclarge/bamboo_background_image_2_169385.jpg");
+	background-repeat: repeat;
+  font-family: Comic Sans MS;
+  font-weight: 500;
+  color: #fff;
+  text-shadow: 0.5em 0.5em 0.5em black;
+}
+
+
+#home {
+  background: url("http://p1.pichost.me/i/73/1976385.jpg");  
+}
+
+.fruit {
+  background-image: none;
+  background-color: rgba(0,0,0,.5);
+  border-radius: 10px;
+}
+
+#baby, #sound {
+  text-align: center;
+  background: none;
 }
